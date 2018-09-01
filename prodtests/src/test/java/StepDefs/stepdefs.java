@@ -20,15 +20,15 @@ public class stepdefs {
 
 
     @Then("^the correct elements should be displayed$")
-    public void the_correct_elements_should_be_displayed() throws Exception {
+    public void the_correct_elements_should_be_displayed() {
         boolean aboutUsDisplayed = driver.findElement(By.xpath("//*[@id=\"primary-nav\"]/div/div/nav/ul[1]/li[1]/a/span")).isDisplayed();
         Assert.assertTrue(aboutUsDisplayed);
     }
 
 
-    @BeforeMethod
+    /*@BeforeMethod
     public void setUp() {
         driver.get("https://www.clearscore.com");
-    }
+    }*/
 
 }
