@@ -4,6 +4,9 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import java.util.concurrent.TimeUnit;
 
 public class HomePage {
 
@@ -21,19 +24,20 @@ public class HomePage {
 
 
     public void aboutUsBoxIsDisplayed() {
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         Assert.assertTrue(aboutUsBox.isDisplayed());
     }
     public void blogBoxIsDisplayed() {
-        org.testng.Assert.assertTrue(blogBox.isDisplayed());
+        Assert.assertTrue(blogBox.isDisplayed());
     }
     public void learnBoxIsDisplayed() {
-        org.testng.Assert.assertTrue(learnBox.isDisplayed());
+        Assert.assertTrue(learnBox.isDisplayed());
     }
     public void careersBoxIsDisplayed() {
-        org.testng.Assert.assertTrue(careersBox.isDisplayed());
+        Assert.assertTrue(careersBox.isDisplayed());
     }
     public void helpBoxIsDisplayed() {
-        org.testng.Assert.assertTrue(helpBox.isDisplayed());
+        Assert.assertTrue(helpBox.isDisplayed());
     }
 
     public void clickLogin() {
@@ -43,7 +47,7 @@ public class HomePage {
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
-
+        PageFactory.initElements(driver,this);
     }
 
 }
