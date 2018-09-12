@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import java.util.concurrent.TimeUnit;
 
 public class HomePage {
@@ -21,6 +20,8 @@ public class HomePage {
     WebElement careersBox;
     @FindBy(xpath = "//*[@id=\"primary-nav\"]/div/div/nav/ul[1]/li[5]/a")
     WebElement helpBox;
+    @FindBy(id = "header-cta-btn--login")
+    WebElement loginButton;
 
 
     public void aboutUsBoxIsDisplayed() {
@@ -40,8 +41,17 @@ public class HomePage {
         Assert.assertTrue(helpBox.isDisplayed());
     }
 
-    public void clickLogin() {
+    public void checkAllElementsArePresent() {
+        aboutUsBoxIsDisplayed();
+        blogBoxIsDisplayed();
+        learnBoxIsDisplayed();
+        careersBoxIsDisplayed();
+        helpBoxIsDisplayed();
 
+    }
+
+    public void clickLogin() {
+        loginButton.click();
     }
 
 

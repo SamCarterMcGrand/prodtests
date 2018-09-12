@@ -1,6 +1,7 @@
 package StepDefs;
 
 import Pages.HomePage;
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -34,11 +35,16 @@ public class stepdefs {
     public void the_user_will_be_able_to_click_login() {
 
     }
-    
+
     @Before
     public void setUp() {
         driver = Browser.DriverFactory.open(browserChoice);
         driver.get(homePage);
+    }
+
+    @After
+    public void tearDown() {
+        driver.quit();
     }
 
 }
