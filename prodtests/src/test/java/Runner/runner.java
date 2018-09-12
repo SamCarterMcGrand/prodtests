@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 import StepDefs.stepdefs;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/Features", glue = "src/test/java/StepDefs")
+@CucumberOptions( features = {"src/test/Features"} , glue = {"StepDefs"} )
 
 
 public class runner {
