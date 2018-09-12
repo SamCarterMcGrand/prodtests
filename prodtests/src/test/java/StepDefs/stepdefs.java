@@ -1,9 +1,12 @@
 package StepDefs;
 
+import Pages.HomePage;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import java.util.Scanner;
 
@@ -26,6 +29,7 @@ public class stepdefs {
     String homePage = "https://www.clearscore.com";
     String browserChoice = "chrome";
     WebDriver driver;
+    HomePage homepage = new HomePage(driver);
 
 
 
@@ -38,7 +42,10 @@ public class stepdefs {
 
     @Then("^the correct elements should be displayed$")
     public void the_correct_elements_should_be_displayed() {
+        //Assert.assertTrue(driver.findElement(By.xpath("//*[@id=\"primary-nav\"]/div/div/nav/ul[1]/li[1]/a")).isDisplayed());
 
+        homepage.aboutUsBoxIsDisplayed();
+        // homepage.blog();
     }
 
     @And("^the user will be able to click login$")
