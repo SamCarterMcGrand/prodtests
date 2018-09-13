@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class HomePage {
 
 
-    protected WebDriver driver;
+    WebDriver driver;
     public HomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver,this);
@@ -48,14 +48,6 @@ public class HomePage {
         Assert.assertTrue(helpBox.isDisplayed());
     }
 
-    public void checkAllElementsArePresent() {
-        aboutUsBoxIsDisplayed();
-        blogBoxIsDisplayed();
-        learnBoxIsDisplayed();
-        careersBoxIsDisplayed();
-        helpBoxIsDisplayed();
-
-    }
 
     public void clickLogin() {
         loginButton.click();
