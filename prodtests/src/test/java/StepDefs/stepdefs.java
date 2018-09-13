@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 
 public class stepdefs {
 
-    String homePage = "https://www.clearscore.com";
+    String homePage = "https://web.stg.gb.clearscore.io/";
     String browserChoice = "chrome";
     WebDriver driver;
     HomePage homepage = new HomePage(driver);
@@ -24,11 +24,14 @@ public class stepdefs {
 
     @Then("^the correct elements should be displayed$")
     public void the_correct_elements_should_be_displayed() {
+        /*
         homepage.aboutUsBoxIsDisplayed();
         homepage.blogBoxIsDisplayed();
         homepage.learnBoxIsDisplayed();
         homepage.careersBoxIsDisplayed();
         homepage.helpBoxIsDisplayed();
+        */
+        homepage.checkAllElementsArePresent();
     }
 
     @And("^the user will be able to click login$")

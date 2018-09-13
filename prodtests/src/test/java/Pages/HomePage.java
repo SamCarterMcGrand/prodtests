@@ -9,7 +9,14 @@ import java.util.concurrent.TimeUnit;
 
 public class HomePage {
 
-    WebDriver driver;
+
+    protected WebDriver driver;
+    public HomePage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver,this);
+    }
+
+
     @FindBy(xpath = "//*[@id=\"primary-nav\"]/div/div/nav/ul[1]/li[1]/a")
     WebElement aboutUsBox;
     @FindBy(xpath = "//*[@id=\"primary-nav\"]/div/div/nav/ul[1]/li[2]/a")
@@ -55,9 +62,6 @@ public class HomePage {
     }
 
 
-    public HomePage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver,this);
-    }
+
 
 }
