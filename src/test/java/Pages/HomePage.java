@@ -17,36 +17,34 @@ public class HomePage {
     }
 
 
-    @FindBy(xpath = "//*[@id=\"primary-nav\"]/div/div/nav/ul[1]/li[1]/a")
+    @FindBy(className = "nav-item--about")
     WebElement aboutUsBox;
-    @FindBy(xpath = "//*[@id=\"primary-nav\"]/div/div/nav/ul[1]/li[2]/a")
+    @FindBy(className = "nav-item--blog")
     WebElement blogBox;
-    @FindBy(xpath = "//*[@id=\"primary-nav\"]/div/div/nav/ul[1]/li[3]/a")
+    @FindBy(className = "nav-item--learn")
     WebElement learnBox;
-    @FindBy(xpath = "//*[@id=\"primary-nav\"]/div/div/nav/ul[1]/li[4]/a")
+    @FindBy(className = "nav-item--careers")
     WebElement careersBox;
-    @FindBy(xpath = "//*[@id=\"primary-nav\"]/div/div/nav/ul[1]/li[5]/a")
+    @FindBy(className = "nav-item--help")
     WebElement helpBox;
+    @FindBy(id = "header-cta-btn--signup")
+    WebElement signUpBox;
     @FindBy(id = "header-cta-btn--login")
     WebElement loginButton;
 
 
-    public void aboutUsBoxIsDisplayed() {
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+
+
+    public void allHomePageElementsAreDisplayedCheck() {
         Assert.assertTrue(aboutUsBox.isDisplayed());
-    }
-    public void blogBoxIsDisplayed() {
         Assert.assertTrue(blogBox.isDisplayed());
-    }
-    public void learnBoxIsDisplayed() {
         Assert.assertTrue(learnBox.isDisplayed());
-    }
-    public void careersBoxIsDisplayed() {
         Assert.assertTrue(careersBox.isDisplayed());
-    }
-    public void helpBoxIsDisplayed() {
         Assert.assertTrue(helpBox.isDisplayed());
+        Assert.assertTrue(signUpBox.isDisplayed());
     }
+
+
 
 
     public void clickLogin() {

@@ -7,8 +7,10 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.openqa.selenium.WebDriver;
 
+import java.util.concurrent.TimeUnit;
 
 
 public class stepdefs {
@@ -29,30 +31,45 @@ public class stepdefs {
 
     }
 
-    @Then("^the correct elements should be displayed$")
-    public void the_correct_elements_should_be_displayed() {
+    @Then("^the correct homepage elements should be displayed$")
+    public void the_correct_homepage_elements_should_be_displayed() {
         HomePage homepage = new HomePage(driver);
-        homepage.aboutUsBoxIsDisplayed();
-        homepage.blogBoxIsDisplayed();
-        homepage.learnBoxIsDisplayed();
-        homepage.careersBoxIsDisplayed();
-        homepage.helpBoxIsDisplayed();
-
+        homepage.allHomePageElementsAreDisplayedCheck();
     }
 
+
+    @Given("^the user is on the login page$")
     @And("^the user will be able to click login$")
     public void the_user_will_be_able_to_click_login() {
         HomePage homepage = new HomePage(driver);
-        LoginPage loginThing = new LoginPage(driver);
+        LoginPage login = new LoginPage(driver);
         homepage.clickLogin();
-        loginThing.loginBoxIsDisplayed();
+        login.loginBoxIsDisplayed();
     }
 
+    @When("^logs in with user name \"cs-everything@clrscr.uk\" and password \"Pa55word\"$")
+    public void logs_in_with_username_and_password() {
+        LoginPage login = new LoginPage(driver);
+        login.enterUserAndPassword("test201@clrscr.uk","Pa55word");
+        // driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    }
+
+    @Then("^the user should be on the main page")
+    public void the_user_should_be_on_the_main_page() {
+        LoginPage login = new LoginPage(driver);
+        login.checkMainPageUrl();
+    }
+
+    @And("^the correct main page elements should be displayed$")
+    public void the_correct_main_page_elements_should_be_displayed() {
+        LoginPage login = new LoginPage(driver);
+        login.checkMainPageElements();
+    }
 
 
     @After
     public void tearDown() {
-        driver.quit();
+        // driver.quit();
     }
 
 }
