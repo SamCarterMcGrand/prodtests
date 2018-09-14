@@ -13,9 +13,9 @@ import org.openqa.selenium.WebDriver;
 
 public class stepdefs {
 
-    String homePage = "https://www.clearscore.com";
-    String browserChoice = "chrome";
-    WebDriver driver;
+    private String homePage = "https://web.stg.gb.clearscore.io/";
+    private String browserChoice = "chrome";
+    private WebDriver driver;
 
     @Before
     public void setUp() {
